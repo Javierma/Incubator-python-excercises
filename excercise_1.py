@@ -1,4 +1,5 @@
 #Python excercise 1
+#Author: Javier Martínez Arrieta
 
 import re
 

@@ -1,3 +1,6 @@
+#Python excercise 2
+#Author: Javier Martínez Arrieta
+
 import re
 
 regex_text=r"(?:(^switchport trunk allowed vlan )((?:[0-9]{1,4}\,|(?:[0-9]{1,4}$))+))"
