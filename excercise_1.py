@@ -1,12 +1,8 @@
+# -*- coding: utf-8 -*-
 #Python excercise 1
 #Author: Javier Martínez Arrieta
 
 import re
-
-
-def convert_binary_to_int(octect):
-	net_addr_octect=int(octect[0])*128+int(octect[1])*64+int(octect[2])*32+int(octect[3])*16+int(octect[4])*8+int(octect[5])*4+int(octect[6])*2+int(octect[7])*1
-	return net_addr_octect
 
 regex_ip_addr = r"^(?:(?:(?:\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])\.){3}(?:(?:\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])$))"
 regex_netmask = r"^(?:(?:\/(?:[1-2][0-9]|3[0-2]|[8-9])))$"
@@ -77,13 +73,12 @@ while group < 4:
 			net_addr_octect=net_addr_octect+'0'	
 			broadcast_address_octect=broadcast_address_octect+'1'
 		i=i+1
-	net_addr.append(net_addr_octect)
-	broadcast_address.append(broadcast_address_octect)
+	net_addr.append(str(int(net_addr_octect,2)))
+	broadcast_address.append(str(int(broadcast_address_octect,2)))
 	group=group+1
 	net_addr_octect=str()
 	broadcast_address_octect=str()
 	i=0
 
-
-print 'Network address is '+str(convert_binary_to_int(net_addr[0]))+'.'+str(convert_binary_to_int(net_addr[1]))+'.'+str(convert_binary_to_int(net_addr[2]))+'.'+str(convert_binary_to_int(net_addr[3]))+'/'+str(netmask)
-print 'Broadcast address is '+ str(convert_binary_to_int(broadcast_address[0]))+'.'+str(convert_binary_to_int(broadcast_address[1]))+'.'+str(convert_binary_to_int(broadcast_address[2]))+'.'+str(convert_binary_to_int(broadcast_address[3]))+'/'+str(netmask)
+print 'Network address is '+'.'.join(net_addr)+'/'+str(netmask)
+print 'Broadcast address is '+'.'.join(broadcast_address)+'/'+str(netmask)
