@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Python excercise 3
 #Author: Javier Martínez Arrieta
 
