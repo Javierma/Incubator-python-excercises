@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #Python excercise 2
 #Author: Javier Martínez Arrieta
 
@@ -49,4 +50,3 @@ unique_vlans.sort()
 
 print 'Common VLANS: '+str(common_vlans)
 print 'Unique VLANS: '+str(unique_vlans)
-
