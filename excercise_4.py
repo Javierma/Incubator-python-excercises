@@ -17,16 +17,11 @@ while repeat_question:
 	if interface_type_number[0] is 'f' or interface_type_number[0] is 'F' or interface_type_number[0] is 'g' or interface_type_number[0] is 'G' or interface_type_number[0] is 's' or interface_type_number[0] is 'S':
 		repeat_question=False
 
-repeat_question=True
-while repeat_question:
-	if interface_mode == 'access':
-		vlan=raw_input('Enter VLAN number: ')
+if interface_mode == 'access':
+	vlan=raw_input('Enter VLAN number: ')
 
-	else:
-		vlan=raw_input('Enter allowed VLANs: ')	
-	
-	if int(vlan) >=0 and int(vlan) <=4094:
-		repeat_question=False
+else:
+	vlan=raw_input('Enter allowed VLANs: ')	
 		
 
 print '\ninterface ' + interface_type_number
