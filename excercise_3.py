@@ -4,7 +4,7 @@
 
 import re
 
-regex_dynamic_route=r"(^((?:[HRBUoMPDEO\*])|(?:O\sE[12])|(?:i\sL\d))(?:\s)((?:(?:\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])\.){3}(?:(?:\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])))(?:\s\s\[)(\d+\/\d+)(?:\]\svia\s)((?:(?:\b2[0-5]{2}|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])\.){3}(?:(?:\b25[0-5]|\b2[0-4][0-9]|\b1[0-9]{2}|\b[0-9]{2}|\b[0-9])))\s,\s(\d{1,2}:\d\d:\d\d),\s((?:\w+(?:\/|$))+))"
+regex_dynamic_route=r"(^((?:[HRBUoMPDEO\*])|(?:O\sE[12])|(?:i\sL\d))(?:\s+)((?:((?:\d|\.|\/)+))(?:\s+\[)(\d+\/\d+)(?:\]\svia\s)((?:\d|\.|\/)+))\s{0,},\s(\d{1,2}:\d\d:\d\d),\s((?:\w+(?:\/|$))+))"
 
 regex_static_or_connected=r"(^(?:[CLS])\*{0,1})(?:\s+)((?:\d|\.|\/)+)(?:\s+)(?:(?:(?:is directly connected,\s+)((?:\w+(?:\/|$))+))|((?:\[)(\d+\/\d+)(?:\])(?:\s+via\s+)((?:\d|\.|\/)+)|(((?:\d|\.)+)(?:\s+is directly connected,\s+)((?:\w+(?:\/|$))+))))"
 
@@ -18,11 +18,11 @@ for line in ip_routes_file:
 	if match and match.group(2) in codes:
 		print '---------------------------------'
 		print 'Protocol: ' + str(codes[match.group(2)])
-		print 'Prefix: ' + str(match.group(3))
-		print 'AD/Metric: ' + str(match.group(4))
-		print 'Next hop: '+ str(match.group(5))
-		print 'Last update: ' + str(match.group(6))
-		print 'Outbound interface: ' + str(match.group(7))	
+		print 'Prefix: ' + str(match.group(4))
+		print 'AD/Metric: ' + str(match.group(5))
+		print 'Next hop: '+ str(match.group(6))
+		print 'Last update: ' + str(match.group(7))
+		print 'Outbound interface: ' + str(match.group(8))	
 		print '---------------------------------'
 	
 	#Route not dynamically learned, so the output format varies
