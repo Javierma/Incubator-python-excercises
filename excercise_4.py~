@@ -11,7 +11,11 @@ while repeat_question:
 	if interface_mode == 'access' or interface_mode == 'trunk':
 		repeat_question=False
 
-interface_type_number=raw_input('Enter interface type and number: ')
+repeat_question=True
+while repeat_question:
+	interface_type_number=raw_input('Enter interface type and number: ')
+	if interface_type_number[0] is 'f' or interface_type_number[0] is 'F' or interface_type_number[0] is 'g' or interface_type_number[0] is 'G' or interface_type_number[0] is 's' or interface_type_number[0] is 'S':
+		repeat_question=False
 
 if interface_mode == 'access':
 	vlan=raw_input('Enter VLAN number: ')
